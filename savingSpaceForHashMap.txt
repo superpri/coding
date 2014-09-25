@@ -1,0 +1,38 @@
+In order to save space while using hash tables,
+it would be nice to use some kind of tree data
+structure using the node as value and key: for 
+instance, a trie.
+
+A trie is an ordered tree data structure that 
+is used to store dynamic sets or associative
+arrays. The position in the tree defines the
+key with which it is associated. All the
+descendents of a node have a common prefix of
+the string associated with that node. The root
+is the empty string. You can use a specific
+character to denote the end of a string.
+
+The complexity is calculated in the following
+way: 
+
+1) you need to set up how many letters will
+you use: L.
+2) if you decide to store words until they
+reach size 5, your first level has L nodes,
+since it starts with all the letters your
+alphabet has.
+3) each of those L nodes has L nodes as children
+counting L^2 for the second layer.
+4) your third layer will have L^3 nodes. you are
+always increasing L nodes by each depth into the
+tree for each node on that level.
+5) for an n deep tree, you'll have factorial of L
+(L^n)
+
+In a hashtable, for each 5 letter word, we save
+5 characters for each word times the combination
+L^5 to form 5 letter words. For each 4 letter word, 
+we need 4 times L^4.
+
+trie: O(L^n)
+hashtable: O(n*L^n)
